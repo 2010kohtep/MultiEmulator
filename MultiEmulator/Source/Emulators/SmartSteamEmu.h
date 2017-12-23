@@ -59,43 +59,43 @@ int GenerateSmartSteamEmu(void* pDest, int nSteamID)
 	auto pTicket = (int*)pDest;
 	auto pbTicket = (unsigned char*)pDest;
 
-	pTicket[0] = 'UMEH';			// +0, header
-	pTicket[1] = 315;				// +4, method of ticket checking, but reunion just want this value to be >= 315
-	pTicket[2] = 0;					// +8, htonl()'ed IP address of ticket's owner; needs to be set, because reunion checks it
-	pTicket[3] = ' ESS';			// +12, magic number
-	pTicket[4] = 0;					// +16
-	pTicket[5] = 0;					// +20
+	pTicket[0] = 'UMEH';   //  +0, header
+	pTicket[1] = 315;      //  +4, method of ticket checking, but reunion just want this value to be >= 315
+	pTicket[2] = 0;        //  +8, htonl()'ed IP address of ticket's owner; needs to be set, because reunion checks it
+	pTicket[3] = ' ESS';   // +12, magic number
+	pTicket[4] = 0;        // +16
+	pTicket[5] = 0;        // +20
 
 	/* This part of ticket encrypted with RSA-256 algorithm */
 
-	*(long long *)&pbTicket[6] = 0;	// +24, key for AES part; GetVersionExW() stuff
+	*(long long *)&pbTicket[6] = 0; // +24, key for AES part; GetVersionExW() stuff
 
 	/* End of encrypted part */
-	
-	pTicket[8] = 0;								// +32
-	pTicket[9] = 0;								// +36
-	pTicket[10] = 0;							// +40
-	pTicket[11] = 0;							// +44
-	pTicket[12] = SmartSteamEmuHash(nullptr);	// +48, SteamId, Low part
-	pTicket[13] = 0x01100001;					// +52, SteamId, High part
-	pTicket[14] = 32;							// +56, length of next encrypted data; reunion validates this value (!= 0, < 64)
+
+	pTicket[8] = 0;                           // +32
+	pTicket[9] = 0;                           // +36
+	pTicket[10] = 0;                          // +40
+	pTicket[11] = 0;                          // +44
+	pTicket[12] = SmartSteamEmuHash(nullptr); // +48, SteamId, Low part
+	pTicket[13] = 0x01100001;                 // +52, SteamId, High part
+	pTicket[14] = 32;                         // +56, length of next encrypted data; reunion validates this value (!= 0, < 64)
 
 	/* This part of ticket encrypted with AES algorithm */
 
-	pTicket[15] = rand() + (rand() << 16);		// +60, unknown random int32 value, probably needs for encrypt things
-	pTicket[16] = pTicket[3];					// +64, looks like it must to be ' ESS' too
-
-	pTicket[17] = pTicket[12];					// +68, must be identical
-	pTicket[18] = pTicket[13];					// +72, must be identical
-
-	pTicket[19] = pTicket[2];					// +76, our IP again
-	pTicket[20] = 0;							// +80, unused
-	*(long long *)&pTicket[21] = _time64(0);	// +84, ticket generation time
+	pTicket[15] = rand() + (rand() << 16);   // +60, unknown random int32 value, probably needs for encrypt things
+	pTicket[16] = pTicket[3];                // +64, looks like it must to be ' ESS' too
+											 
+	pTicket[17] = pTicket[12];               // +68, must be identical
+	pTicket[18] = pTicket[13];               // +72, must be identical
+											 
+	pTicket[19] = pTicket[2];                // +76, our IP again
+	pTicket[20] = 0;                         // +80, unused
+	*(long long *)&pTicket[21] = _time64(0); // +84, ticket generation time
 
 	/* End of encrypted part */
 
-	pTicket[23] = 0;							// +92, htonl()
-	pTicket[24] = 0;							// +96 (word), htons()
+	pTicket[23] = 0;                         // +92, htonl()
+	pTicket[24] = 0;                         // +96 (word), htons()
 
 	return 104;
 }

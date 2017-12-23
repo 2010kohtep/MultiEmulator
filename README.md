@@ -2,7 +2,7 @@
 
 **MultiEmulator** - project for GoldSource Engine, which provides ability to generate tickets with a specific SteamID key, using all available emulators for this engine.
 
-Ticket are processed by the game server of Half-Life 1 and modifications using **DProto** and **ReUnion** modules. If the server does not have these modules, then MultiEmulator won't work.
+Ticket is processed by the game server of Half-Life 1 and modifications using **DProto** or **ReUnion** modules. If the server does not have these modules, then MultiEmulator won't work.
 
 # Ticket generators
 
