@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Source\Shared\RevSpoofer.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shared\StrUtils.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shared\Encryption\DoubleBuffering.h">
+      <Filter>Shared\Encryption</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shared\Encryption\MessageDigest.h">
+      <Filter>Shared\Encryption</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shared\Encryption\SHA.h">
+      <Filter>Shared\Encryption</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shared\Encryption\CRijndael.h">
+      <Filter>Shared\Encryption</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Emulators\RevEmu.h">
+      <Filter>Emulators</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Emulators\RevEmu2013.h">
+      <Filter>Emulators</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Emulators\SC2009.h">
+      <Filter>Emulators</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Emulators\Setti.h">
+      <Filter>Emulators</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Emulators\SmartSteamEmu.h">
+      <Filter>Emulators</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Emulators\SteamEmu.h">
+      <Filter>Emulators</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Emulators\AVSMP.h">
+      <Filter>Emulators</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Emulators\OldRevEmu.h">
+      <Filter>Emulators</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Shared\RevSpoofer.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Shared\StrUtils.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Shared\Encryption\MessageDigest.cpp">
+      <Filter>Shared\Encryption</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Shared\Encryption\SHA.cpp">
+      <Filter>Shared\Encryption</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Shared\Encryption\CRijndael.cpp">
+      <Filter>Shared\Encryption</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Shared\Encryption\DoubleBuffering.cpp">
+      <Filter>Shared\Encryption</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{aa31de1d-5b39-429b-8c07-a95c4eda4fb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\Encryption">
+      <UniqueIdentifier>{8e23d3c2-571a-4f6a-a8f6-e75ee62e2644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Emulators">
+      <UniqueIdentifier>{fef297a2-d5d5-4bc4-af16-537523fefcdf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
