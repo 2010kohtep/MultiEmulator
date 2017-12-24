@@ -18,10 +18,10 @@
 
 #pragma once
 
-#include <Shared\StrUtils.h>
-#include <Shared\RevSpoofer.h>
-#include <Shared\Encryption\CRijndael.h>
-#include <Shared\Encryption\SHA.h>
+#include "..\Shared\StrUtils.h"
+#include "..\Shared\RevSpoofer.h"
+#include "..\Shared\Encryption\CRijndael.h"
+#include "..\Shared\Encryption\SHA.h"
 #include <Windows.h>
 
 int GenerateSC2009(void* pDest, int nSteamID)
@@ -30,9 +30,7 @@ int GenerateSC2009(void* pDest, int nSteamID)
 
 	CreateRandomString(hwid, 32);
 	if (!RevSpoofer::Spoof(hwid, nSteamID))
-	{
 		return 0;
-	}
 
 	auto pTicket = (int*)pDest;
 	auto pbTicket = (byte*)pDest;

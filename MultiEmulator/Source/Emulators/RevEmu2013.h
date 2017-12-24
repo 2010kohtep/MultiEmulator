@@ -18,10 +18,10 @@
 
 #pragma once
 
-#include <Shared\StrUtils.h>
-#include <Shared\RevSpoofer.h>
-#include <Shared\Encryption\CRijndael.h>
-#include <Shared\Encryption\SHA.h>
+#include "..\Shared\StrUtils.h"
+#include "..\Shared\RevSpoofer.h"
+#include "..\Shared\Encryption\CRijndael.h"
+#include "..\Shared\Encryption\SHA.h"
 #include <Windows.h>
 #include <time.h>
 
@@ -38,16 +38,16 @@ int GenerateRevEmu2013(void* pDest, int nSteamID)
 
 	auto revHash = RevSpoofer::Hash(hwid);
 
-	pTicket[0] = 'S';              // +0
-	pTicket[1] = revHash;          // +4
-	pTicket[2] = 'rev';            // +8
-	pTicket[3] = 0;                // +12
-	pTicket[4] = revHash << 1;     // +16
-	pTicket[5] = 0x01100001;       // +20
-	pTicket[6] = time(0) + 90123;  // +24
+	pTicket[0] = 'S';                   // +0
+	pTicket[1] = revHash;               // +4
+	pTicket[2] = 'rev';                 // +8
+	pTicket[3] = 0;                     // +12
+	pTicket[4] = revHash << 1;          // +16
+	pTicket[5] = 0x01100001;            // +20
+	pTicket[6] = (int)time(0) + 90123;  // +24
 	pbTicket[27] = ~(pbTicket[27] + pbTicket[24]);
-	pTicket[7] = ~time(0);         // +28
-	pTicket[8] = revHash * 2 >> 3; // +32
+	pTicket[7] = ~(int)time(0);         // +28
+	pTicket[8] = revHash * 2 >> 3;      // +32
 
 	static const char AESKeyRand[] = "0123456789ABCDEFGHIJKLMNOPQRSTUV";
 	char AESHashRand[32];

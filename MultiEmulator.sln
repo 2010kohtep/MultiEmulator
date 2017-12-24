@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example", "Example\Example.vcxproj", "{027151FC-50A5-42CB-ABBF-13B4A275D3FD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{805E9B43-3FE8-44CF-91A5-247B291F24F6} = {805E9B43-3FE8-44CF-91A5-247B291F24F6}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiEmulator", "MultiEmulator\MultiEmulator.vcxproj", "{805E9B43-3FE8-44CF-91A5-247B291F24F6}"
 EndProject

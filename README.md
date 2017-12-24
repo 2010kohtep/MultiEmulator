@@ -22,4 +22,4 @@ Currently under development generators:
 Each file in the **MultiEmulator\Source\Emulators** folder contains a **Generate** function that writes a ticket to the **pDest** argument for the emulator of the same name as a header file. As a result of the function, the size of the written ticket is returned. If the generator can set an arbitrary SteamID, the function will have the **nSteamID** argument, in which the required SteamID is specified.
 
 # Examples
-Coming soon.
+As an example, the DLL was developed that searches InitiateGameConnection method in ISteamUser interface, which generates Steam ticket, and inserts in its place own generator, which creates RevEmu2013 ticket with SteamID equal to 3333333. You can find this project in **Example** folder, you just need to compile it and perform DLL injection in hl.exe process with any known injection method.

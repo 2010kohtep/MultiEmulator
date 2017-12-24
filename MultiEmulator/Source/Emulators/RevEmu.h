@@ -18,8 +18,8 @@
 
 #pragma once
 
-#include <Shared\StrUtils.h>
-#include <Shared\RevSpoofer.h>
+#include "..\Shared\StrUtils.h"
+#include "..\Shared\RevSpoofer.h"
 #include <Windows.h>
 
 int GenerateRevEmu(void* pDest, int nSteamID)
