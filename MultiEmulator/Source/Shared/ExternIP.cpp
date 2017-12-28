@@ -17,7 +17,7 @@
 */
 
 #include "HTTP.h"
-#include <WinSock2.h>
+#include <WinSock.h>
 
 const char* g_pszHosts[] = 
 {

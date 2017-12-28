@@ -23,7 +23,7 @@
 #include "..\Shared\Encryption\CRijndael.h"
 #include "..\Shared\Encryption\SHA.h"
 #include "..\Shared\ExternIP.h"
-#include <WinSock2.h>
+#include <WinSock.h>
 #include <Windows.h>
 #include <time.h>
 
@@ -49,7 +49,7 @@ int SmartSteamEmuHash(void* pData)
 	{
 		auto h1 = _rotl(0xCC9E2D51 * p[i], 15);
 		auto h2 = _rotl(0x1B873593 * h1 ^ seed, 13);
-		seed = 5 * (h2 - 0x52250EC);
+		seed = 5 * (h2 - 0x052250EC);
 	}
 
 	auto hash = seed ^ SSE3_DATA_SIZE;
