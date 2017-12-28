@@ -1,0 +1,1 @@
+This folder contains pseudocode of emulators' functions that generate and validate SteamID tickets.

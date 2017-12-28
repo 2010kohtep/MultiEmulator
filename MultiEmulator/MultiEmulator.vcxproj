@@ -23,6 +23,8 @@
     <ClInclude Include="Source\Shared\Encryption\DoubleBuffering.h" />
     <ClInclude Include="Source\Shared\Encryption\MessageDigest.h" />
     <ClInclude Include="Source\Shared\Encryption\SHA.h" />
+    <ClInclude Include="Source\Shared\ExternIP.h" />
+    <ClInclude Include="Source\Shared\HTTP.h" />
     <ClInclude Include="Source\Shared\RevSpoofer.h" />
     <ClInclude Include="Source\Shared\StrUtils.h" />
   </ItemGroup>
@@ -31,6 +33,7 @@
     <ClCompile Include="Source\Shared\Encryption\DoubleBuffering.cpp" />
     <ClCompile Include="Source\Shared\Encryption\MessageDigest.cpp" />
     <ClCompile Include="Source\Shared\Encryption\SHA.cpp" />
+    <ClCompile Include="Source\Shared\ExternIP.cpp" />
     <ClCompile Include="Source\Shared\RevSpoofer.cpp" />
     <ClCompile Include="Source\Shared\StrUtils.cpp" />
   </ItemGroup>

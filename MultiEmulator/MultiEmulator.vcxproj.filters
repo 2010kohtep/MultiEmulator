@@ -43,6 +43,12 @@
     <ClInclude Include="Source\Emulators\OldRevEmu.h">
       <Filter>Emulators</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Shared\ExternIP.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shared\HTTP.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Shared\RevSpoofer.cpp">
@@ -62,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="Source\Shared\Encryption\DoubleBuffering.cpp">
       <Filter>Shared\Encryption</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Shared\ExternIP.cpp">
+      <Filter>Shared</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
