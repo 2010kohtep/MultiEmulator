@@ -1,24 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Source\Shared\RevSpoofer.h">
-      <Filter>Shared</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Shared\StrUtils.h">
-      <Filter>Shared</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Shared\Encryption\DoubleBuffering.h">
-      <Filter>Shared\Encryption</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Shared\Encryption\MessageDigest.h">
-      <Filter>Shared\Encryption</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Shared\Encryption\SHA.h">
-      <Filter>Shared\Encryption</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Shared\Encryption\CRijndael.h">
-      <Filter>Shared\Encryption</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Emulators\RevEmu.h">
       <Filter>Emulators</Filter>
     </ClInclude>
@@ -43,35 +25,14 @@
     <ClInclude Include="Source\Emulators\OldRevEmu.h">
       <Filter>Emulators</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Shared\ExternIP.h">
-      <Filter>Shared</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Shared\HTTP.h">
-      <Filter>Shared</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source\Shared\RevSpoofer.cpp">
-      <Filter>Shared</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Shared\StrUtils.cpp">
-      <Filter>Shared</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Shared\Encryption\MessageDigest.cpp">
-      <Filter>Shared\Encryption</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Shared\Encryption\SHA.cpp">
-      <Filter>Shared\Encryption</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Shared\Encryption\CRijndael.cpp">
-      <Filter>Shared\Encryption</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Shared\Encryption\DoubleBuffering.cpp">
-      <Filter>Shared\Encryption</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Shared\ExternIP.cpp">
-      <Filter>Shared</Filter>
-    </ClCompile>
+    <ClInclude Include="Source\Public\ExternIP.h" />
+    <ClInclude Include="Source\Public\HTTP.h" />
+    <ClInclude Include="Source\Public\RevSpoofer.h" />
+    <ClInclude Include="Source\Public\StrUtils.h" />
+    <ClInclude Include="Source\Public\Encryption\DoubleBuffering.h" />
+    <ClInclude Include="Source\Public\Encryption\MessageDigest.h" />
+    <ClInclude Include="Source\Public\Encryption\SHA.h" />
+    <ClInclude Include="Source\Public\Encryption\CRijndael.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Shared">
@@ -83,5 +44,14 @@
     <Filter Include="Emulators">
       <UniqueIdentifier>{fef297a2-d5d5-4bc4-af16-537523fefcdf}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Public\ExternIP.cpp" />
+    <ClCompile Include="Source\Public\RevSpoofer.cpp" />
+    <ClCompile Include="Source\Public\StrUtils.cpp" />
+    <ClCompile Include="Source\Public\Encryption\DoubleBuffering.cpp" />
+    <ClCompile Include="Source\Public\Encryption\MessageDigest.cpp" />
+    <ClCompile Include="Source\Public\Encryption\SHA.cpp" />
+    <ClCompile Include="Source\Public\Encryption\CRijndael.cpp" />
   </ItemGroup>
 </Project>

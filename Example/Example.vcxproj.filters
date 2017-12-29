@@ -3,14 +3,4 @@
   <ItemGroup>
     <ClCompile Include="Source\Example.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Source\Shared\isteamuser.h">
-      <Filter>Shared</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Shared">
-      <UniqueIdentifier>{3cd421a9-c8d5-4c06-97fa-67559ced8247}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
 </Project>

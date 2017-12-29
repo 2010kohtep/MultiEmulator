@@ -82,9 +82,6 @@
   <ItemGroup>
     <ClCompile Include="Source\Example.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Source\Shared\isteamuser.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

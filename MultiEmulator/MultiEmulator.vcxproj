@@ -19,23 +19,23 @@
     <ClInclude Include="Source\Emulators\Setti.h" />
     <ClInclude Include="Source\Emulators\SmartSteamEmu.h" />
     <ClInclude Include="Source\Emulators\SteamEmu.h" />
-    <ClInclude Include="Source\Shared\Encryption\CRijndael.h" />
-    <ClInclude Include="Source\Shared\Encryption\DoubleBuffering.h" />
-    <ClInclude Include="Source\Shared\Encryption\MessageDigest.h" />
-    <ClInclude Include="Source\Shared\Encryption\SHA.h" />
-    <ClInclude Include="Source\Shared\ExternIP.h" />
-    <ClInclude Include="Source\Shared\HTTP.h" />
-    <ClInclude Include="Source\Shared\RevSpoofer.h" />
-    <ClInclude Include="Source\Shared\StrUtils.h" />
+    <ClInclude Include="Source\Public\Encryption\CRijndael.h" />
+    <ClInclude Include="Source\Public\Encryption\DoubleBuffering.h" />
+    <ClInclude Include="Source\Public\Encryption\MessageDigest.h" />
+    <ClInclude Include="Source\Public\Encryption\SHA.h" />
+    <ClInclude Include="Source\Public\ExternIP.h" />
+    <ClInclude Include="Source\Public\HTTP.h" />
+    <ClInclude Include="Source\Public\RevSpoofer.h" />
+    <ClInclude Include="Source\Public\StrUtils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Shared\Encryption\CRijndael.cpp" />
-    <ClCompile Include="Source\Shared\Encryption\DoubleBuffering.cpp" />
-    <ClCompile Include="Source\Shared\Encryption\MessageDigest.cpp" />
-    <ClCompile Include="Source\Shared\Encryption\SHA.cpp" />
-    <ClCompile Include="Source\Shared\ExternIP.cpp" />
-    <ClCompile Include="Source\Shared\RevSpoofer.cpp" />
-    <ClCompile Include="Source\Shared\StrUtils.cpp" />
+    <ClCompile Include="Source\Public\Encryption\CRijndael.cpp" />
+    <ClCompile Include="Source\Public\Encryption\DoubleBuffering.cpp" />
+    <ClCompile Include="Source\Public\Encryption\MessageDigest.cpp" />
+    <ClCompile Include="Source\Public\Encryption\SHA.cpp" />
+    <ClCompile Include="Source\Public\ExternIP.cpp" />
+    <ClCompile Include="Source\Public\RevSpoofer.cpp" />
+    <ClCompile Include="Source\Public\StrUtils.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

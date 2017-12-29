@@ -17,9 +17,10 @@
 */
 
 #include <Windows.h>
-#include <Shared\isteamuser.h>
 
 #include "..\..\MultiEmulator\Source\Emulators\RevEmu2013.h"
+
+class ISteamUser;
 
 using TInitiateGameConnection = int(__fastcall *)(ISteamUser* self, int, void* pData, int cbMaxData, long long steamID, int unIPServer, short usPortServer, int bSecure);
 using TSteamUser = ISteamUser*(*)();
@@ -57,7 +58,7 @@ DWORD WINAPI Init(LPVOID lpThreadParameter)
 		return FALSE;
 
 	/* Get pointer to InitiateGameConnection method address in virtual table of ISteamUser interface. */
-	auto pfn = &((void **)pSteamUser->_vptr)[3];
+	auto pfn = &((void **)(*(void **)pSteamUser))[3];
 
 	/* Save original InitiateGameConnection method code address. */
 	pfnInitiateGameConnection = (TInitiateGameConnection)*pfn;

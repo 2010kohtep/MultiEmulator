@@ -16,7 +16,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-#include <Shared\StrUtils.h>
+#include <Public\StrUtils.h>
 #include <Windows.h>
 
 void CreateRandomString(char* pszDest, int nLength)
