@@ -25,7 +25,7 @@ int GenerateAVSMP(void* pDest, int nSteamID, bool bUniverse = true)
 
 	pTicket[0] = 0x14;                               //  +0, header
 	pTicket[3] = (nSteamID << 1) | (int)bUniverse;   // +12, SteamId, Low part
-	pTicket[4] = 0x01001001;                         // +16, SteamId, High part
+	pTicket[4] = 0x01100001;                         // +16, SteamId, High part
 
 	return 28;
 }
