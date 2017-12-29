@@ -83,7 +83,7 @@ int GenerateSmartSteamEmu(void* pDest, int nSteamID)
 
 	/* End of encrypted part */
 
-	pTicket[8] = 0;                           // +32 
+	pTicket[8] = 0;                           // +32
 	pTicket[9] = 0;                           // +36
 	pTicket[10] = 0;                          // +40
 	pTicket[11] = 0;                          // +44
