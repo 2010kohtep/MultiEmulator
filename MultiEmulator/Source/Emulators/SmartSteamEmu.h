@@ -18,11 +18,11 @@
 
 #pragma once
 
-#include "..\Shared\StrUtils.h"
-#include "..\Shared\RevSpoofer.h"
-#include "..\Shared\Encryption\CRijndael.h"
-#include "..\Shared\Encryption\SHA.h"
-#include "..\Shared\ExternIP.h"
+#include "..\Public\StrUtils.h"
+#include "..\Public\RevSpoofer.h"
+#include "..\Public\Encryption\CRijndael.h"
+#include "..\Public\Encryption\SHA.h"
+#include "..\Public\ExternIP.h"
 #include <WinSock.h>
 #include <Windows.h>
 #include <time.h>
