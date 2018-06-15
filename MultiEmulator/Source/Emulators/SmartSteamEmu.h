@@ -45,10 +45,10 @@ int SmartSteamEmuHash(void* pData)
 }
 
 // TODO: Encryption and routine validation
-int GenerateSmartSteamEmu(void* pDest, int nSteamID)
+int GenerateSmartSteamEmu(void *pDest, int nSteamID)
 {
-	auto pTicket = (int*)pDest;
-	auto pbTicket = (unsigned char*)pDest;
+	auto pTicket = (int *)pDest;
+	auto pbTicket = (unsigned char *)pDest;
 
 	auto uIP = GetExternalIPLong();
 

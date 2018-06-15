@@ -1,3 +1,3 @@
 #pragma once
 
-void CreateRandomString(char* pszDest, int nLength);
+void CreateRandomString(char *pszDest, int nLength);

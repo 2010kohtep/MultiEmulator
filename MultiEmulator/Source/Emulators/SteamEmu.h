@@ -1,8 +1,8 @@
 #pragma once
 
-int GenerateSteamEmu(void* pDest, int nSteamID)
+int GenerateSteamEmu(void *pDest, int nSteamID)
 {
-	auto pTicket = (int*)pDest;
+	auto pTicket = (int *)pDest;
 
 	pTicket[20] = -1;        // +80, dproto/reunion wants this value to be -1, but if this value
 	                         //      does not match -1, then instead of SteamID in [21] cell

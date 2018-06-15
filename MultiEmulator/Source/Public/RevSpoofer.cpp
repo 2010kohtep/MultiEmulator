@@ -3,38 +3,38 @@
 
 #define astrlen(x) _countof(x) - 1
 
-static char Dictionary[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" };
+static char s_szDictionary[] = { "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" };
 
 static int iInputLen;
 static unsigned int uTreasure;
 
-bool ScanLast3(char* pszInput, unsigned int uPrevHash)
+bool ScanLast3(char *pszInput, unsigned int uPrevHash)
 {
 	unsigned int h1, h2, h3, hh;
-	for (int i1 = 0; i1 < astrlen(Dictionary); i1++)
+	for (int i1 = 0; i1 < astrlen(s_szDictionary); i1++)
 	{
-		h1 = uPrevHash ^ ((uPrevHash >> 2) + (uPrevHash << 5) + Dictionary[i1]);
+		h1 = uPrevHash ^ ((uPrevHash >> 2) + (uPrevHash << 5) + s_szDictionary[i1]);
 		hh = h1 ^ ((h1 >> 2) + (h1 << 5));
 		hh = hh ^ ((hh >> 2) + (hh << 5));
 
 		if ((hh ^ uTreasure) >> (8 + 5 + 3))
 			continue;
 
-		for (int i2 = 0; i2 < astrlen(Dictionary); i2++)
+		for (int i2 = 0; i2 < astrlen(s_szDictionary); i2++)
 		{
-			h2 = h1 ^ ((h1 >> 2) + (h1 << 5) + Dictionary[i2]);
+			h2 = h1 ^ ((h1 >> 2) + (h1 << 5) + s_szDictionary[i2]);
 			hh = h2 ^ ((h2 >> 2) + (h2 << 5));
 			if ((hh ^ uTreasure) >> (8 + 3))
 				continue;
 
-			for (int i3 = 0; i3 < astrlen(Dictionary); i3++)
+			for (int i3 = 0; i3 < astrlen(s_szDictionary); i3++)
 			{
-				h3 = h2 ^ ((h2 >> 2) + (h2 << 5) + Dictionary[i3]);
+				h3 = h2 ^ ((h2 >> 2) + (h2 << 5) + s_szDictionary[i3]);
 				if (h3 == uTreasure)
 				{
-					pszInput[iInputLen - 3] = Dictionary[i1];
-					pszInput[iInputLen - 2] = Dictionary[i2];
-					pszInput[iInputLen - 1] = Dictionary[i3];
+					pszInput[iInputLen - 3] = s_szDictionary[i1];
+					pszInput[iInputLen - 2] = s_szDictionary[i2];
+					pszInput[iInputLen - 1] = s_szDictionary[i3];
 					return true;
 				}
 			}
@@ -47,9 +47,9 @@ bool ScanNext(char* pszInput, int uIndex, unsigned int uPrevHash)
 {
 	bool res;
 
-	for (int i = 0; i < astrlen(Dictionary); i++)
+	for (int i = 0; i < astrlen(s_szDictionary); i++)
 	{
-		auto h = uPrevHash ^ ((uPrevHash >> 2) + (uPrevHash << 5) + Dictionary[i]);
+		auto h = uPrevHash ^ ((uPrevHash >> 2) + (uPrevHash << 5) + s_szDictionary[i]);
 
 		if (uIndex + 1 < iInputLen - 3)
 			res = ScanNext(pszInput, uIndex + 1, h);
@@ -58,7 +58,7 @@ bool ScanNext(char* pszInput, int uIndex, unsigned int uPrevHash)
 
 		if (res)
 		{
-			pszInput[uIndex] = Dictionary[i];
+			pszInput[uIndex] = s_szDictionary[i];
 			return true;
 		}
 	}
@@ -67,7 +67,7 @@ bool ScanNext(char* pszInput, int uIndex, unsigned int uPrevHash)
 
 namespace RevSpoofer
 {
-	bool Spoof(char* pszDest, int uSID)
+	bool Spoof(char *pszDest, int uSID)
 	{
 		uTreasure = uSID;
 		iInputLen = strlen(pszDest);
@@ -79,18 +79,18 @@ namespace RevSpoofer
 		return ScanNext(pszDest, i, h);
 	}
 
-	unsigned int Hash(char* pszString)
+	unsigned int Hash(char *pszString)
 	{
 		int i = 0;
-		unsigned int hash = 0x4E67C6A7;
+		unsigned int nHash = 0x4E67C6A7;
 		int c = pszString[i++];
 
 		while (c)
 		{
-			hash = hash ^ ((hash >> 2) + (hash << 5) + c);
+			nHash = nHash ^ ((nHash >> 2) + (nHash << 5) + c);
 			c = pszString[i++];
 		}
 
-		return hash;
+		return nHash;
 	}
 }

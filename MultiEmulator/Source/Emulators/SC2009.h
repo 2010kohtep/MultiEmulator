@@ -43,7 +43,7 @@ int GenerateSC2009(void* pDest, int nSteamID)
 	AESRev.EncryptBlock(AESKeyRand, AESHashRev);
 	memcpy(&pbTicket[56], AESHashRev, 32);
 
-	/*  Perform HWID hashing and save hash to the ticket. */
+	/* Perform HWID hashing and save hash to the ticket. */
 	char SHAHash[32];
 	auto sha = CSHA(CSHA::SHA256);
 	sha.AddData(hwid, 32);

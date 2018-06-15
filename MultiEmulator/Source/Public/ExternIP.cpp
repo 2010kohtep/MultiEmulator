@@ -14,15 +14,15 @@ const char* g_pszHosts[] =
 *
 * @output       IPv4 address as string.
 */
-char* GetExternalIPString()
+char *GetExternalIPString()
 {
 	int iResSize = 0;
 	int iRetCode = 0;
-	void* pData = nullptr;
+	void *pData = nullptr;
 
-	for (int i = 0; i < _countof(g_pszHosts); i++)
+	for (auto &&host : g_pszHosts)
 	{
-		pData = HTTPGetRequest(g_pszHosts[i], &iResSize, &iRetCode);
+		pData = HTTPGetRequest(host, &iResSize, &iRetCode);
 
 		if (pData && iResSize && iRetCode == 200)
 			break;
@@ -31,10 +31,10 @@ char* GetExternalIPString()
 	if (!pData || !iResSize || iRetCode != 200)
 		return nullptr;
 
-	static char sIP[256];
-	strcpy(sIP, (char*)pData);
+	static char c_szIP[256];
+	strcpy(c_szIP, (char *)pData);
 
-	auto psz = sIP;
+	auto psz = c_szIP;
 	char c;
 	while (c = *psz, c != '\0')
 	{
@@ -48,7 +48,7 @@ char* GetExternalIPString()
 	}
 	free(pData);
 
-	return sIP;
+	return c_szIP;
 }
 
 /*

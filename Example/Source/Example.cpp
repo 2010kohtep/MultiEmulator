@@ -4,12 +4,12 @@
 
 class ISteamUser;
 
-using TInitiateGameConnection = int(__fastcall *)(ISteamUser* self, int, void* pData, int cbMaxData, long long steamID, int unIPServer, short usPortServer, int bSecure);
+using TInitiateGameConnection = int(__fastcall *)(ISteamUser *self, int, void *pData, int cbMaxData, long long steamID, int unIPServer, short usPortServer, int bSecure);
 using TSteamUser = ISteamUser*(*)();
 
 TInitiateGameConnection pfnInitiateGameConnection = nullptr;
 
-int __fastcall hkInitiateGameConnection(ISteamUser* self, int, void* pData, int cbMaxData, long long steamID, int unIPServer, short usPortServer, int bSecure)
+int __fastcall hkInitiateGameConnection(ISteamUser *self, int, void *pData, int cbMaxData, long long steamID, int unIPServer, short usPortServer, int bSecure)
 {
 	return GenerateRevEmu2013(pData, 3333333);
 
@@ -47,9 +47,9 @@ DWORD WINAPI Init(LPVOID lpThreadParameter)
 
 	/* Write own InitiateGameConnection function address to virtual table. */
 	DWORD oldProtect;
-	VirtualProtect(pfn, sizeof(void*), PAGE_READWRITE, &oldProtect);
+	VirtualProtect(pfn, sizeof(void *), PAGE_READWRITE, &oldProtect);
 	*pfn = hkInitiateGameConnection;
-	VirtualProtect(pfn, sizeof(void*), oldProtect, nullptr);
+	VirtualProtect(pfn, sizeof(void *), oldProtect, NULL);
 
 	return TRUE;
 }
@@ -61,12 +61,13 @@ BOOL WINAPI DllMain(_In_ HINSTANCE hinstDLL, _In_ DWORD fdwReason, _In_ LPVOID l
 	if (fdwReason == DLL_PROCESS_ATTACH)
 	{
 		/* Create mutex to prevent multiple code calling. */
-		char sMutex[256];
-		sprintf_s(sMutex, "MultiEmuExample%08X", (int)hinstDLL);
-		if (CreateMutex(nullptr, false, sMutex) == (HANDLE)ERROR_ALREADY_EXISTS)
+		char szMutex[256];
+		sprintf_s(szMutex, "MultiEmuExample%08X", (int)hinstDLL);
+
+		if (CreateMutex(NULL, FALSE, szMutex) == (HANDLE)ERROR_ALREADY_EXISTS)
 			return TRUE;
 
-		CreateThread(nullptr, 0, Init, nullptr, 0, nullptr);
+		CreateThread(NULL, 0, Init, NULL, 0, NULL);
 	}
 
 	return TRUE;

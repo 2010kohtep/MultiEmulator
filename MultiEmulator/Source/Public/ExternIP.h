@@ -1,4 +1,4 @@
 #pragma once
 
-char* GetExternalIPString();
+char *GetExternalIPString();
 long GetExternalIPLong();

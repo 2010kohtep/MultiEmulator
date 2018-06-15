@@ -29,7 +29,7 @@ static int IsURL(LPCSTR lpszURL)
 	return URL_INVALID;
 }
 
-static BOOL ParseURL(PCHAR pszURL, PCHAR pszHost, PCHAR pszObject, bool* bIsHTTPS = nullptr)
+static BOOL ParseURL(PCHAR pszURL, PCHAR pszHost, PCHAR pszObject, bool *bIsHTTPS = nullptr)
 {
 	if (pszURL == nullptr || pszHost == nullptr || pszObject == nullptr) return false;
 
