@@ -16,14 +16,14 @@ int __fastcall hkInitiateGameConnection(ISteamUser *self, int, void *pData, int 
 	// return pfnInitiateGameConnection(self, 0, pData, cbMaxData, steamID, unIPServer, usPortServer, bSecure);
 }
 
-DWORD WINAPI Init(LPVOID lpThreadParameter)
+DWORD CALLBACK Init(LPVOID)
 {
 	HMODULE hSteamAPI;
 
 	/* Wait for steam_api.dll load. */
 	while (true)
 	{
-		hSteamAPI = GetModuleHandle("steam_api.dll");
+		hSteamAPI = GetModuleHandleA("steam_api.dll");
 
 		if (hSteamAPI)
 			break;
@@ -61,10 +61,12 @@ BOOL WINAPI DllMain(_In_ HINSTANCE hinstDLL, _In_ DWORD fdwReason, _In_ LPVOID l
 	if (fdwReason == DLL_PROCESS_ATTACH)
 	{
 		/* Create mutex to prevent multiple code calling. */
-		char szMutex[256];
-		sprintf_s(szMutex, "MultiEmuExample%08X", (int)hinstDLL);
+		char szMutex[32];
+		sprintf_s(szMutex, "MultiEmuExample%08X", (int)GetCurrentProcessId());
 
-		if (CreateMutex(NULL, FALSE, szMutex) == (HANDLE)ERROR_ALREADY_EXISTS)
+		CreateMutexA(NULL, TRUE, szMutex);
+
+		if (GetLastError() == ERROR_ALREADY_EXISTS)
 			return TRUE;
 
 		CreateThread(NULL, 0, Init, NULL, 0, NULL);
