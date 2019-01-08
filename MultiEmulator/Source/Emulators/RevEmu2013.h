@@ -30,6 +30,7 @@ int GenerateRevEmu2013(void *pDest, int nSteamID)
 	pbTicket[27] = ~(pbTicket[27] + pbTicket[24]);
 	pTicket[7] = ~(int)_time64(0);         // +28
 	pTicket[8] = revHash * 2 >> 3;         // +32
+	pTicket[9] = 0;                        // +36
 
 	static const char c_szAESKeyRand[] = "0123456789ABCDEFGHIJKLMNOPQRSTUV";
 
